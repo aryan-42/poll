@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css' // or './index.css' if that’s your file
 import App from './App'
-import Survey from './components/Survey' // or './pages/Survey'
-import Roster from './components/Roster' // or './pages/Roster'
-import Admin from './components/Admin'   // or './pages/Admin'
+import Survey from './pages/Survey' // or './pages/Survey'
+import Roster from './pages/Roster' // or './pages/Roster'
+import Admin from './pages/Admin'   // or './pages/Admin'
 
 function DebugPanel() {
   // Show whether Vite env vars are present (true/false) — no secrets leaked
