@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /participants/{roll} {
+      allow read: if false; 
+      allow create: if true; 
+      allow update, delete: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+    match /tasks/{id} {
+      allow read: if false;
+      allow create, update, delete: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+    match /responses/{id} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+    match /admins/{email} {
+      allow read, write: if request.auth != null && request.auth.token.email == email;
+    }
+    match /rosters/{taskId} {
+      allow read: if resource.data.publishedAt != null;
+      allow create, update, delete: if request.auth != null && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+  }
+}
