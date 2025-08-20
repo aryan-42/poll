@@ -1,9 +1,21 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './index.css'
+import Survey from './pages/Survey'
+import Roster from './pages/Roster'
+import Admin from './pages/Admin'
+import LoginGate from './pages/LoginGate'
 
-createRoot(document.getElementById('root')).render(
-  <div style={{padding:16,fontFamily:'system-ui'}}>
-    <h1>It works ✅</h1>
-    <p>If you see this, hosting & React are fine. Next we re-enable Firebase.</p>
-  </div>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<div className='p-4'>Welcome to MBA HRM 25-27</div>} />
+        <Route path="/survey/:taskId" element={<Survey />} />
+        <Route path="/roster/:taskId" element={<Roster />} />
+        <Route path="/admin" element={<LoginGate><Admin /></LoginGate>} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
 )
