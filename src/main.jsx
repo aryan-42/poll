@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css' // or './index.css' if that's what you have
 import App from './App.jsx'
-import Survey from './components/Survey.jsx'
-import Roster from './components/Roster.jsx'
-import Admin from './components/Admin.jsx'
+import Survey from './pages/Survey.jsx'
+import Roster from './pages/Roster.jsx'
+import Admin from './pages/Admin.jsx'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
