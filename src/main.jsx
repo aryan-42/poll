@@ -1,7 +1,7 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import './styles.css' // or './index.css' if that’s your file
+import './index.css' // or './index.css' if that’s your file
 import App from './App'
 import Survey from './components/Survey' // or './pages/Survey'
 import Roster from './components/Roster' // or './pages/Roster'
